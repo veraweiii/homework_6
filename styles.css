@@ -1,4 +1,8 @@
 /* Import fonts */
+/* Font credits go to: 
+- https://www.fontfabric.com/fonts/intro-rust/#:~:text=Intro%20Rust%20is%20one%20of,the%20market%2C%20including%20214%20fonts.&text=A%20beautiful%20mixture%20of%20display,design%2C%20branding%2C%20and%20more.
+- https://fonts.google.com/specimen/Barlow */
+
 @font-face {
     font-family: 'Intro Rust';
     src: url('fonts/introrust-base.otf') format('opentype');
@@ -896,11 +900,3 @@ summary::-webkit-details-marker, summary::marker {
     color: #FEDD0A; 
     cursor: pointer;
 }
-
-
-
-
-
-
-
-

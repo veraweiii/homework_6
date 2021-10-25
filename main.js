@@ -17,15 +17,12 @@ function updateCartLabel() {
     cartArray = localStorage.getItem("cartArray");
     cartArray = JSON.parse(cartArray);
     if (cartArray == null) {
-        console.log("cartArray == null")
         cartArray = [];
         // localStorage.setItem("cartArray", JSON.stringify(cartArray));
     }
     let cartSize = cartArray.length;
-    console.log(document.getElementById("cart-number"));
     if (cartArray.length > 0) {
         console.log(cartArray.length);
-        console.log(document.getElementById("cart-number"));
         document.getElementById("cart-number").innerHTML = cartSize;
     }
     //document.getElementById("cart-number")[0].innerHTML = cartSize;
@@ -34,7 +31,6 @@ updateCartLabel();
 
 // Update price when size selected
 document.getElementById("size").addEventListener("change", function () {
-    console.log(localStorage);
     if (document.getElementById("1-roll").checked) {
         document.getElementsByClassName("price")[0].innerHTML = "$2.99";
     } else if (document.getElementById("3-rolls").checked) {
@@ -49,33 +45,31 @@ document.getElementById("size").addEventListener("change", function () {
 // Update image when glazing selected
 
 if (document.getElementsByClassName("item-header")[0].innerHTML == "Original") {
-    console.log("Hello")
-document.getElementById("glazing").addEventListener("change", function () {
-    if (document.getElementById("none").checked) {
-        document.getElementsByClassName("item-image")[0].src = "img/original.png";
-    } else if (document.getElementById("double-chocolate").checked) {
-        document.getElementsByClassName("item-image")[0].src = "img/glaze/original-chocolate.png";
-    } else if (document.getElementById("vanilla-milk").checked) {
-        document.getElementsByClassName("item-image")[0].src = "img/glaze/original-vanilla.png";
-    } else if (document.getElementById("sugar-milk").checked) {
-        document.getElementsByClassName("item-image")[0].src = "img/glaze/original-sugar.png";
-    }
-    //console.log(document.getElementById("none").checked);
-});
-} else if (document.getElementsByClassName("item-header")[0].innerHTML == "Blackberry") {
-    console.log("Hello")
-document.getElementById("glazing").addEventListener("change", function () {
-    if (document.getElementById("none").checked) {
-        document.getElementsByClassName("item-image")[0].src = "img/original.png";
-    } else if (document.getElementById("double-chocolate").checked) {
-        document.getElementsByClassName("item-image")[0].src = "img/glaze/original-chocolate.png";
-    } else if (document.getElementById("vanilla-milk").checked) {
-        document.getElementsByClassName("item-image")[0].src = "img/glaze/original-vanilla.png";
-    } else if (document.getElementById("sugar-milk").checked) {
-        document.getElementsByClassName("item-image")[0].src = "img/glaze/original-sugar.png";
-    }
-    //console.log(document.getElementById("none").checked);
-});
+    document.getElementById("glazing").addEventListener("change", function () {
+        if (document.getElementById("none").checked) {
+            document.getElementsByClassName("item-image")[0].src = "img/original.png";
+        } else if (document.getElementById("double-chocolate").checked) {
+            document.getElementsByClassName("item-image")[0].src = "img/glaze/original-chocolate.png";
+        } else if (document.getElementById("vanilla-milk").checked) {
+            document.getElementsByClassName("item-image")[0].src = "img/glaze/original-vanilla.png";
+        } else if (document.getElementById("sugar-milk").checked) {
+            document.getElementsByClassName("item-image")[0].src = "img/glaze/original-sugar.png";
+        }
+        //console.log(document.getElementById("none").checked);
+    });
+} else if (document.getElementsByClassName("item-header")[0].innerHTML == "Pumpkin Spice") {
+    document.getElementById("glazing").addEventListener("change", function () {
+        if (document.getElementById("none").checked) {
+            document.getElementsByClassName("item-image")[0].src = "img/pumpkin-spice.png";
+        } else if (document.getElementById("double-chocolate").checked) {
+            document.getElementsByClassName("item-image")[0].src = "img/glaze/pumpkin-chocolate.png";
+        } else if (document.getElementById("vanilla-milk").checked) {
+            document.getElementsByClassName("item-image")[0].src = "img/glaze/pumpkin-vanilla.png";
+        } else if (document.getElementById("sugar-milk").checked) {
+            document.getElementsByClassName("item-image")[0].src = "img/glaze/pumpkin-sugar.png";
+        }
+        //console.log(document.getElementById("none").checked);
+    });
 }
 
 
@@ -98,34 +92,32 @@ document.getElementById("cart-btn").addEventListener("click", function () {
         price = "$23.99";
     }
 
-    let type;
-    let img; 
+    let glaze;
+    let img;
     if (document.getElementById("none").checked) {
-        type = "none";
+        glaze = "none";
         img = "img/original.png";
     } else if (document.getElementById("double-chocolate").checked) {
-        type = "double-chocolate";
+        glaze = "double-chocolate";
         img = "img/glaze/original-chocolate.png";
     } else if (document.getElementById("vanilla-milk").checked) {
-        type = "vanilla-milk";
+        glaze = "vanilla-milk";
         img = "img/glaze/original-vanilla.png";
     } else if (document.getElementById("sugar-milk").checked) {
-        type = "sugar-milk";
+        glaze = "sugar-milk";
         img = "img/glaze/original-sugar.png";
     }
 
     let newRoll = new roll(
-        "Original Cinnamon Roll",
+        document.getElementsByClassName("item-header")[0].innerHTML,
         size,
-        type,
+        glaze,
         price,
         img
     );
-    
-    //document.getElementsByClassName("item-image").attr('src')
-    //console.log(localStorage);
+
     cartArray = JSON.parse(localStorage.getItem("cartArray"));
-    console.log(cartArray);
+    
     if (cartArray == null) {
         console.log("thiscartArray == null");
         cartArray = [];
@@ -133,11 +125,11 @@ document.getElementById("cart-btn").addEventListener("click", function () {
     }
     cartArray.push(newRoll);
     localStorage.setItem("cartArray", JSON.stringify(cartArray));
-    casdf
-
+    console.log(cartArray);
     updateCartLabel();
-    // add code for item added notification
 });
+
+
 
 
 
