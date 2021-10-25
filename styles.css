@@ -871,6 +871,32 @@ summary::-webkit-details-marker, summary::marker {
     /* margin-left: 15px;  */
 }
 
+.cart-actions {
+    display: flex;
+    float: right; 
+}
+
+#cart-checkout-btn, #cart-continue-btn{
+    float: right;
+    width: 180px; 
+    margin-right: 180px; 
+    margin-top: 10px; 
+    font-size: 14px; 
+}
+
+#cart-continue-btn {
+    background-color: #000000;
+    color: #FFFFFF;
+    border: solid 3px #FFFFFF;
+    margin-right: 30px; 
+}
+
+#cart-continue-btn:hover{
+    border: solid 3px #FEDD0A;
+    color: #FEDD0A; 
+    cursor: pointer;
+}
+
 
 
 
